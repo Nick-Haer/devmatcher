@@ -2,10 +2,22 @@ const express = require('express');
 
 const app = express();
 
-const PORT = process.env.PORT || 5000;
+const dbConnector = require('./config/db');
 
-app.listen(PORT, () => console.log(`server started on port ${PORT}`));
+const routes = require('./routes/apiRoutes/index');
+
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.json());
+
+app.use(routes);
+
+dbConnector();
 
 app.get('/', (req, res) => {
   res.status(200).json('Major tom to ground conrol');
 });
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => console.log(`server started on port ${PORT}`));
