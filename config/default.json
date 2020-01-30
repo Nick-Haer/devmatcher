@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://nickhaer:cumulonimbusBigChungus12%25@firstcluster-fbty4.mongodb.net/test?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://nickhaer:cumulonimbusBigChungus12%25@firstcluster-fbty4.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "pamparampampampaaaram"
 }
