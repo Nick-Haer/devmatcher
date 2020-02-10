@@ -2,13 +2,13 @@ import React from 'react';
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import { setAlert } from '../../actions/alert';
+import { setAlert } from '../../actions/alert';
 // import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
 
 import axios from 'axios';
 
-const Register = props => {
+const Register = ({ setAlert }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,11 +27,11 @@ const Register = props => {
   const onSubmit = async e => {
     e.preventDefault();
 
-    // if (password !== password2) {
-    //   setAlert('passwords do not match', 'danger', 3000);
-    // } else {
-    //   register({ name, email, password });
-    // }
+    if (password !== password2) {
+      setAlert('Passwords do not match', 'danger', 5000);
+    } else {
+      console.log('SUCCESS');
+    }
   };
 
   return (
@@ -94,10 +94,9 @@ const Register = props => {
   );
 };
 
-// Register.propTypes = {
-//   setAlert: PropTypes.func.isRequired,
-//   register: PropTypes.func.isRequired,
-// };
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+};
 
-// export default connect(null, { setAlert, register })(Register);
-export default Register;
+export default connect(null, { setAlert })(Register);
+// export default Register;
