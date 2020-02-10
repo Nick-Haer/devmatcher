@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 // import { setAlert } from '../../actions/alert';
 // import { register } from '../../actions/auth';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import axios from 'axios';
 
-const Register = props => {
+const Register = ({}) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -100,4 +100,3 @@ const Register = props => {
 // };
 
 // export default connect(null, { setAlert, register })(Register);
-export default Register;
