@@ -21,10 +21,14 @@ router.route('/').post(
     }),
   ],
   async (req, res) => {
+    console.log(req.body);
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      res.status(400).json({ error: errors.array() });
+      console.log(errors.array());
+      return res.status(400).json({ error: errors.array() });
     }
+
+    console.log('past inital errors, route hit');
     console.log(req.body);
 
     const { name, email, password } = req.body;
