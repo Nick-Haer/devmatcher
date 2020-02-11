@@ -30,12 +30,15 @@ router
   .post(
     [
       check('email', 'Please enter a correct email').isEmail(),
-      check('password', 'passwords required').exists(),
+      check('password', 'Password Required')
+        .exists()
+        .isLength({ min: 6 }),
     ],
     async (req, res) => {
       const errors = validationResult(req);
+      console.log(errors);
       if (!errors.isEmpty()) {
-        res.status(400).json({ error: errors.array() });
+        return res.status(400).json({ error: errors.array() });
       }
       console.log(req.body);
 
@@ -46,7 +49,7 @@ router
         if (!user) {
           return res
             .status(400)
-            .json({ errors: [{ msg: 'Profile not found' }] });
+            .json({ errors: [{ msg: 'incorrect password or username' }] });
         }
         console.log('check');
 
