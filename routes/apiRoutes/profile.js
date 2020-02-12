@@ -112,6 +112,7 @@ router.route('/').post(
     if (githubusername) profileFields.githubusername = githubusername;
 
     console.log(req.body);
+    console.log('gotem');
     if (skills) {
       profileFields.skills = skills.split(',').map(skill => skill.trim());
     }

@@ -57,11 +57,7 @@ export const register = ({ name, email, password }) => async dispatch => {
 
     dispatch(loadUser());
   } catch (error) {
-    console.log('caught');
-    console.log(error);
-    console.log(Object.keys(error));
     const errors = error.response.data.error;
-    console.log(errors);
     if (errors) {
       errors.forEach(element => {
         console.log(element.msg);
