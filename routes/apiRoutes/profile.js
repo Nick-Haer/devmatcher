@@ -5,11 +5,11 @@ const User = require('../../models/User');
 const express = require('express');
 const { check, validationResult } = require('express-validator/check');
 
-// @route GET api/profile/myProfile
+// @route GET api/profile/me
 // @desc retrieves profile info
 // @access api/private
 
-router.route('/myProfile').get(auth, async (req, res) => {
+router.route('/me').get(auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({
       user: req.user.id,
